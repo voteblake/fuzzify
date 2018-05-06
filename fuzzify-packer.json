@@ -1,0 +1,37 @@
+{
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "region": "us-west-2",
+            "instance_type": "c5.2xlarge",
+            "ami_name": "fuzzify-{{timestamp}}",
+            "ssh_username": "ec2-user",
+            "source_ami_filter": {
+                "filters": {
+                    "virtualization-type": "hvm",
+                    "name": "amzn-ami-hvm-2018*-x86_64-gp2",
+                    "root-device-type": "ebs"
+                },
+                "owners": ["137112412989"],
+                "most_recent": true
+            }
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "sleep 30",
+                "sudo yum update -y",
+                "sudo yum install -y gcc gcc-c++ make git",
+                "git clone https://github.com/mirrorer/afl.git afl",
+                "cd afl",
+                "make && sudo make install",
+                "cd",
+                "git clone https://github.com/rc0r/afl-utils.git afl-utils",
+                "cd afl-utils",
+                "sudo python setup.py install"
+            ]
+        }
+    ]
+}
