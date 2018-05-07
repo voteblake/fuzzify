@@ -1,0 +1,7 @@
+{
+    "input": "~/in",
+    "output": "~/out",
+    "target": "~/bin/radare2",
+    "cmdline": "-c aa @@",
+    "mem_limit": "1500"
+}
