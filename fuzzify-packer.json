@@ -23,7 +23,7 @@
             "inline": [
                 "sleep 30",
                 "sudo yum update -y",
-                "sudo yum install -y gcc gcc-c++ make git",
+                "sudo yum install -y gcc gcc-c++ make git tmux",
                 "git clone https://github.com/mirrorer/afl.git afl",
                 "cd afl",
                 "make && sudo make install",
