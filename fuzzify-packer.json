@@ -23,14 +23,14 @@
             "inline": [
                 "sleep 30",
                 "sudo yum update -y",
-                "sudo yum install -y gcc gcc-c++ make git tmux",
+                "sudo yum install -y gcc gcc-c++ make git tmux patch python36",
                 "git clone https://github.com/mirrorer/afl.git afl",
                 "cd afl",
                 "make && sudo make install",
                 "cd",
                 "git clone https://github.com/rc0r/afl-utils.git afl-utils",
                 "cd afl-utils",
-                "sudo python setup.py install"
+                "sudo python3 setup.py install"
             ]
         }
     ]
